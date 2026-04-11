@@ -1,0 +1,216 @@
+/* ------------------------------------------------------------------ */
+/* Hero v2 — centered layout                                           */
+/* ------------------------------------------------------------------ */
+
+.hero2 {
+    padding: 5rem 2rem 5rem;
+    text-align: center;
+}
+
+.hero2-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+/* Badge */
+.hero2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid #b6d4bf;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+}
+
+.hero2-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Title */
+.hero2-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0;
+}
+
+.hero2-title-accent {
+    color: var(--accent);
+    font-style: normal;
+}
+
+/* Subtitle */
+.hero2-subtitle {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    max-width: 580px;
+}
+
+/* Buttons */
+.hero2-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero2-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.hero2-btn:hover { background: var(--accent); }
+
+/* ------------------------------------------------------------------ */
+/* Mockup                                                              */
+/* ------------------------------------------------------------------ */
+
+.hero2-mockup {
+    width: 100%;
+    max-width: 780px;
+    background: #f0ede8;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+    margin-top: 0.5rem;
+}
+
+.mockup-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.9rem 1.25rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green  { background: #28c840; }
+
+.mockup-body {
+    background: var(--paper-card);
+    margin: 0 0.75rem 0.75rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* Stat cards */
+.mockup-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.stat-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.stat-plain {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.stat-sub { font-size: 0.8rem; font-weight: 500; }
+.stat-danger  { color: #c0392b; }
+.stat-success { color: var(--accent); }
+.stat-muted   { color: var(--ink-muted); }
+
+/* Bar rows */
+.mockup-bars {
+    padding: 1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.mockup-bar-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mockup-cat {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: right;
+}
+
+.mockup-bar-track {
+    height: 8px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.mockup-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.mockup-bar-food   { background: #c17f24; }
+.mockup-bar-travel { background: #4a90d9; }
+.mockup-bar-bills  { background: #7b6fc4; }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .hero2-title { font-size: 2.4rem; }
+    .hero2-subtitle br { display: none; }
+
+    .mockup-stats { grid-template-columns: 1fr; }
+}
