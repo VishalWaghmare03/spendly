@@ -28,7 +28,7 @@
 
         <div class="hero2-actions">
             <a href="{{ url_for('register') }}" class="hero2-btn">Create free account</a>
-            <a href="#features" class="hero2-btn">See how it works</a>
+            <button class="hero2-btn" id="openVideoModal">See how it works</button>
         </div>
 
         <div class="hero2-mockup">
@@ -109,4 +109,56 @@
     </div>
 </section>
 
+<!-- Video modal -->
+<div class="video-modal-overlay" id="videoModal" aria-modal="true" role="dialog" hidden>
+    <div class="video-modal-box">
+        <button class="video-modal-close" id="closeVideoModal" aria-label="Close">&times;</button>
+        <div class="video-modal-ratio">
+            <iframe
+                id="videoFrame"
+                src=""
+                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
+                title="See how Spendly works"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    const overlay  = document.getElementById('videoModal');
+    const frame    = document.getElementById('videoFrame');
+    const openBtn  = document.getElementById('openVideoModal');
+    const closeBtn = document.getElementById('closeVideoModal');
+
+    function openModal() {
+        frame.src = frame.dataset.src;
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        overlay.hidden = true;
+        frame.src = '';               // clears src, stops playback immediately
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !overlay.hidden) closeModal();
+    });
+}());
+</script>
 {% endblock %}
